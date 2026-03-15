@@ -39,6 +39,7 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #45a049;
@@ -58,6 +59,7 @@
         <p>Rate die Zahl zwischen 1 und 100:</p>
         <input type="number" id="guess" min="1" max="100">
         <button onclick="checkGuess()">Raten</button>
+        <button onclick="startNewGame()">Neues Spiel</button> <!-- Hier der "Neues Spiel"-Button -->
         <p id="message"></p>
     </div>
 
