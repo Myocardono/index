@@ -35,8 +35,9 @@ function checkGuess() {
 
         document.getElementById('message').textContent = message;
 
-        // 2 Sekunden warten und dann das Spiel zurücksetzen
-        setTimeout(startNewGame, 2000); // Spiel zurücksetzen
+        // **Entfernt**: Das automatische Starten eines neuen Spiels nach 2 Sekunden.
+        // Der Benutzer kann jetzt selbst ein neues Spiel starten, indem er den Button klickt.
+
         return;
     } else if (guess < secretNumber) {
         message = 'Zu niedrig! Versuch es nochmal.';
