@@ -4,7 +4,12 @@ let secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 
 // Highscore aus localStorage holen oder initialisieren
-let highscore = localStorage.getItem('highscore') || Infinity;
+let highscore = localStorage.getItem('highscore');
+if (highscore !== null) {
+    highscore = Number(highscore);
+} else {
+    highscore = Infinity;
+}
 
 function checkGuess() {
     const guessInput = document.getElementById('guess');
