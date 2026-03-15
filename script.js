@@ -19,15 +19,17 @@ function checkGuess() {
     let message = '';
     if (guess === secretNumber) {
         message = `Richtig! Du hast die Zahl in ${attempts} Versuchen erraten.`;
-        
+
         if (attempts < highscore) {
             highscore = attempts;
             localStorage.setItem('highscore', highscore);
-            message += ' 🎉 Neuer Highscore!';
+            message += " 🎉 Neuer Highscore!";
         } else if (highscore < Infinity) {
             message += ` Highscore: ${highscore} Versuche.`;
         }
 
+        document.getElementById('message').textContent = message;
+        return; // Spiel beendet
     } else if (guess < secretNumber) {
         message = 'Zu niedrig! Versuch es nochmal.';
     } else {
@@ -36,4 +38,7 @@ function checkGuess() {
 
     document.getElementById('message').textContent = message;
     guessInput.value = '';
+
+    if (highscore < Infinity) {
+    document.getElementById('message').textContent = `Bisheriger Highscore: ${highscore} Versuche.`;
 }
