@@ -67,3 +67,36 @@ function resetHighscore() {
     // Nachricht an den Benutzer
     document.getElementById('message').textContent = 'Highscore wurde zurückgesetzt. Viel Glück beim nächsten Mal!';
 }
+
+let timer; // Variable für den Timer
+let timeLeft = 30; // Startzeit in Sekunden
+
+// Funktion, um den Timer zu starten
+function startTimer() {
+    timer = setInterval(function() {
+        timeLeft--; // Verbleibende Zeit um 1 Sekunde verringern
+        document.getElementById('timer').textContent = "Zeit: " + timeLeft + "s"; // Timer anzeigen
+
+        // Wenn die Zeit abgelaufen ist, stoppe den Timer und zeige eine Nachricht
+        if (timeLeft <= 0) {
+            clearInterval(timer); // Timer stoppen
+            document.getElementById('message').textContent = "Zeit abgelaufen! Du hast verloren!";
+            endGame(); // Spiel beenden
+        }
+    }, 1000); // Timer jede Sekunde verringern
+}
+
+// Funktion, um den Timer zurückzusetzen
+function resetTimer() {
+    clearInterval(timer); // Timer stoppen
+    timeLeft = 30; // Zeit auf 30 Sekunden zurücksetzen
+    document.getElementById('timer').textContent = "Zeit: 30s"; // Timer-Anzeige zurücksetzen
+}
+
+// Funktion, die beim Start eines neuen Spiels aufgerufen wird
+function startNewGame() {
+    resetTimer(); // Timer zurücksetzen
+    randomNumber = generateRandomNumber(); // Neue Zahl generieren (Funktion müssen wir sicherstellen)
+    startTimer(); // Timer starten
+    document.getElementById('message').textContent = ""; // Alte Nachrichten löschen
+}
