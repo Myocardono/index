@@ -100,3 +100,17 @@ function startNewGame() {
     startTimer(); // Timer starten
     document.getElementById('message').textContent = ""; // Alte Nachrichten löschen
 }
+
+function checkGuess() {
+    let guess = document.getElementById('guess').value;
+
+    if (guess == randomNumber) {
+        document.getElementById('message').textContent = "Richtig geraten!";
+        playCorrectSound(); // Optional: Erfolgston
+        clearInterval(timer); // Timer stoppen
+        saveHighscore(); // Optional: Highscore speichern
+    } else {
+        document.getElementById('message').textContent = "Falsch, versuche es nochmal!";
+        playWrongSound(); // Optional: Fehler-Ton
+    }
+}
