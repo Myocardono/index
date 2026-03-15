@@ -35,8 +35,8 @@ function checkGuess() {
 
         document.getElementById('message').textContent = message;
 
-        // Spiel zurücksetzen, um neu zu starten
-        setTimeout(startNewGame, 2000); // 2 Sekunden warten und dann neues Spiel starten
+        // 2 Sekunden warten und dann das Spiel zurücksetzen
+        setTimeout(startNewGame, 2000); // Spiel zurücksetzen
         return;
     } else if (guess < secretNumber) {
         message = 'Zu niedrig! Versuch es nochmal.';
@@ -48,6 +48,7 @@ function checkGuess() {
     guessInput.value = '';  // Eingabefeld zurücksetzen
 }
 
+// Funktion für den "Neues Spiel"-Button
 function startNewGame() {
     // Neue Zufallszahl generieren und Versuche zurücksetzen
     secretNumber = Math.floor(Math.random() * 100) + 1;
