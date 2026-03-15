@@ -34,6 +34,9 @@ function checkGuess() {
         }
 
         document.getElementById('message').textContent = message;
+
+        // Spiel zurücksetzen, um neu zu starten
+        setTimeout(startNewGame, 2000); // 2 Sekunden warten und dann neues Spiel starten
         return;
     } else if (guess < secretNumber) {
         message = 'Zu niedrig! Versuch es nochmal.';
@@ -43,4 +46,16 @@ function checkGuess() {
 
     document.getElementById('message').textContent = message;
     guessInput.value = '';  // Eingabefeld zurücksetzen
+}
+
+function startNewGame() {
+    // Neue Zufallszahl generieren und Versuche zurücksetzen
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    attempts = 0;
+
+    // Nachricht zurücksetzen
+    document.getElementById('message').textContent = 'Rate die Zahl zwischen 1 und 100:';
+
+    // Eingabefeld zurücksetzen
+    document.getElementById('guess').value = '';
 }
