@@ -1,7 +1,7 @@
-let secretNumber = Math.floor(Math.random() * 100) + 1;  // Zufallszahl zwischen 1 und 100
+let secretNumber = Math.floor(Math.random() * 100) + 1; // Zufallszahl zwischen 1 und 100
 let attempts = 0;
 
-// Highscore aus localStorage holen oder setzen
+// Highscore aus localStorage holen
 let highscore = localStorage.getItem('highscore');
 if (highscore !== null) {
     highscore = Number(highscore);
@@ -17,7 +17,7 @@ if (highscore < Infinity) {
 function checkGuess() {
     const guessInput = document.getElementById('guess');
     const guess = Number(guessInput.value);
-    attempts++;
+    attempts++;  // Zählt die Versuche hoch
 
     let message = '';
 
