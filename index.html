@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- CSS für das Design -->
-  <style>
+<style>
     body {
-        font-family: 'Roboto', sans-serif; /* Schriftart */
+        font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
         background-color: #F5F5DC; /* Helles Beige-Braun für den Hintergrund */
@@ -30,16 +30,17 @@
         padding: 20px;
         border-radius: 15px;
         box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        width: 100%;
+        max-width: 400px; /* Maximale Breite für große Bildschirme */
         margin: 30px auto;
         text-align: center;
     }
 
     input, button {
         padding: 12px;
-        width: 80%;
+        width: 100%; /* Macht die Eingabe und Buttons auf mobilen Geräten breiter */
         font-size: 18px;
-        margin: 10px auto;
+        margin: 10px 0;
         border-radius: 8px;
         border: 1px solid #ccc;
     }
@@ -48,27 +49,27 @@
         background-color: #8B4513; /* Sattelbraun für den Button */
         color: white;
         cursor: pointer;
-        transition: all 0.3s ease; /* Sanfter Übergang bei Hover */
+        transition: all 0.3s ease;
     }
 
     button:hover {
         background-color: #A0522D; /* Dunkles Orangebraun bei Hover */
-        transform: translateY(-3px); /* Leichtes Heben des Buttons */
+        transform: translateY(-3px);
     }
 
     #message {
         font-size: 18px;
-        color: #8B4513; /* Sattelbraune Nachricht */
+        color: #8B4513;
         font-weight: bold;
     }
 
-    /* Neuer Style für den Highscore zurücksetzen Button */
+    /* Highscore zurücksetzen Button */
     .reset-button {
         background-color: #D2691E; /* Schokoladenbraun für den Reset-Button */
     }
 
     .reset-button:hover {
-        background-color: #CD5C5C; /* Dunkleres Rotbraun bei Hover */
+        background-color: #CD5C5C;
     }
 
     /* Wackel-Animation für den Highscore-Button */
@@ -81,7 +82,45 @@
     }
 
     .reset-button:active {
-        animation: shake 0.3s ease; /* Wackeln, wenn gedrückt */
+        animation: shake 0.3s ease;
+    }
+
+    /* Mobile Design: Anpassungen für kleine Bildschirmgrößen */
+    @media only screen and (max-width: 768px) {
+        h1 {
+            font-size: 28px; /* Etwas kleinere Schrift auf mobilen Geräten */
+        }
+
+        #game-container {
+            width: 90%; /* Breite der Spielbox auf Handys 90% */
+            padding: 15px; /* Weniger Padding auf mobilen Geräten */
+        }
+
+        button {
+            padding: 14px; /* Größere Buttons auf mobilen Geräten */
+            font-size: 16px; /* Größere Schriftgröße auf mobilen Geräten */
+        }
+
+        #message {
+            font-size: 16px; /* Kleinere Schrift für Nachrichten */
+        }
+    }
+
+    /* Für sehr kleine Bildschirme (Smartphones in Hochformat) */
+    @media only screen and (max-width: 480px) {
+        h1 {
+            font-size: 24px; /* Noch kleinere Schrift für ganz kleine Bildschirme */
+        }
+
+        #game-container {
+            width: 95%; /* Fast die gesamte Bildschirmbreite */
+            padding: 10px; /* Noch weniger Padding */
+        }
+
+        input, button {
+            padding: 16px; /* Größere Eingabe und Buttons */
+            font-size: 18px; /* Größere Schrift */
+        }
     }
 </style>
   
